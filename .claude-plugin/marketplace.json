@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "trkr",
+  "description": "TRKR synthetic market data — connect your own assistant to an ensemble of simulated futures for real assets.",
+  "owner": {
+    "name": "TRKR",
+    "email": "hello@trkr.ai"
+  },
+  "plugins": [
+    {
+      "name": "trkr",
+      "description": "Query TRKR's synthetic market simulations from your own assistant: explain any simulated future, stress-test a portfolio across all of them, and interrogate the data's quality. Includes the analytical discipline for reading an ensemble without drawing false conclusions.",
+      "category": "data",
+      "source": "./trkr",
+      "homepage": "https://www.trkr.ai/app/agents"
+    }
+  ]
+}

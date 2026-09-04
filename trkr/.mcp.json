@@ -1,0 +1,9 @@
+{
+  "trkr": {
+    "type": "http",
+    "url": "https://www.trkr.ai/api/mcp",
+    "headers": {
+      "Authorization": "Bearer ${TRKR_API_KEY}"
+    }
+  }
+}
