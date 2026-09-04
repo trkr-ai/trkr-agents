@@ -56,6 +56,35 @@ ChatGPT reads at connection time — but if you use TRKR in a ChatGPT Project,
 pasting `trkr/skills/reading-synthetic-markets/SKILL.md` into the project's
 custom instructions is the closest equivalent.
 
+## Gemini
+
+Custom MCP servers work in **Gemini CLI**, Gemini Enterprise, Antigravity and the
+Gemini API — but not in the consumer app at gemini.google.com, which has no
+add-a-connector option. Gemini CLI is free with a Google account:
+
+```bash
+npm i -g @google/gemini-cli@latest
+gemini mcp add --transport http trkr https://www.trkr.ai/api/mcp \
+  --header "Authorization: Bearer $TRKR_API_KEY"
+```
+
+Or in `~/.gemini/settings.json` — note the key is `httpUrl`, since `url` there
+means SSE:
+
+```json
+{
+  "mcpServers": {
+    "trkr": {
+      "httpUrl": "https://www.trkr.ai/api/mcp",
+      "headers": { "Authorization": "Bearer trkr_sk_..." }
+    }
+  }
+}
+```
+
+Dropping the header works too: Gemini CLI sees the 401, discovers the OAuth
+endpoints and opens a browser, the same as ChatGPT.
+
 ## What you can ask
 
 - *"Why does future #42 crash in 2031?"* — it reads the regimes, macro paths and
