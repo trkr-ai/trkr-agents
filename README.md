@@ -67,8 +67,18 @@ curl -fsSL https://antigravity.google/cli/install.sh | bash
 agy install
 ```
 
-Then put this in `~/.gemini/config/mcp_config.json` (or `.agents/mcp_config.json`
-for one workspace):
+Then, one command — flags must come before the name, and an http URL is
+detected without `--type`:
+
+```bash
+agy mcp add --header "Authorization: Bearer $TRKR_API_KEY" \
+  trkr https://www.trkr.ai/api/mcp
+```
+
+Or write it to `~/.gemini/config/mcp_config.json` yourself (`.agents/mcp_config.json`
+for one workspace). The field is `serverUrl`; Antigravity rejects the `url` and
+`httpUrl` spellings Gemini CLI used, and the wrong one fails as though the server
+were down:
 
 ```json
 {
@@ -81,13 +91,9 @@ for one workspace):
 }
 ```
 
-The field is `serverUrl`. Antigravity does not accept `url` or `httpUrl`, and the
-wrong one fails as though the server were down.
+Drop the header entirely and Antigravity handles OAuth by itself — it registers
+dynamically and sends you to trkr.ai to approve, the same flow ChatGPT uses.
 
-Drop the `headers` line entirely and Antigravity handles OAuth by itself —
-it registers dynamically and sends you to trkr.ai to approve, the same flow
-ChatGPT uses. `/mcp` inside the prompt panel manages servers without editing
-files.
 
 ## What you can ask
 
