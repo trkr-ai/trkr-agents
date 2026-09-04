@@ -39,7 +39,12 @@ claude mcp add --transport http trkr https://www.trkr.ai/api/mcp \
 ChatGPT cannot send an API key to an MCP server — OpenAI's connectors support
 OAuth only — so it signs you in instead. There is no key to copy.
 
-1. In ChatGPT: **Settings → Apps & Connectors → Advanced → Developer mode**.
+1. Turn on [developer mode](https://help.openai.com/en/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt)
+   in ChatGPT's settings. OpenAI has moved this between **Security and login**,
+   **Connectors → Advanced settings** and **Apps → Advanced**, so follow their
+   help article rather than a path written here. It is on chatgpt.com only (not
+   the mobile app), needs a paid plan, and on a Business or Enterprise workspace
+   an admin must allow custom connectors first.
 2. Create a connector pointing at `https://www.trkr.ai/api/mcp`, authentication
    **OAuth**.
 3. You will land on trkr.ai to sign in and approve the connection, then return
