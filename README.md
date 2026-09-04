@@ -56,34 +56,38 @@ ChatGPT reads at connection time — but if you use TRKR in a ChatGPT Project,
 pasting `trkr/skills/reading-synthetic-markets/SKILL.md` into the project's
 custom instructions is the closest equivalent.
 
-## Gemini
+## Google Antigravity
 
-Custom MCP servers work in **Gemini CLI**, Gemini Enterprise, Antigravity and the
-Gemini API — but not in the consumer app at gemini.google.com, which has no
-add-a-connector option. Gemini CLI is free with a Google account:
+Gemini CLI was retired in June 2026 and replaced by **Antigravity** (the `agy`
+command). The consumer app at gemini.google.com still has no way to add a
+connector, so Antigravity is the route for Google users — and it is free.
 
 ```bash
-npm i -g @google/gemini-cli@latest
-gemini mcp add --transport http trkr https://www.trkr.ai/api/mcp \
-  --header "Authorization: Bearer $TRKR_API_KEY"
+curl -fsSL https://antigravity.google/cli/install.sh | bash
+agy install
 ```
 
-Or in `~/.gemini/settings.json` — note the key is `httpUrl`, since `url` there
-means SSE:
+Then put this in `~/.gemini/config/mcp_config.json` (or `.agents/mcp_config.json`
+for one workspace):
 
 ```json
 {
   "mcpServers": {
     "trkr": {
-      "httpUrl": "https://www.trkr.ai/api/mcp",
+      "serverUrl": "https://www.trkr.ai/api/mcp",
       "headers": { "Authorization": "Bearer trkr_sk_..." }
     }
   }
 }
 ```
 
-Dropping the header works too: Gemini CLI sees the 401, discovers the OAuth
-endpoints and opens a browser, the same as ChatGPT.
+The field is `serverUrl`. Antigravity does not accept `url` or `httpUrl`, and the
+wrong one fails as though the server were down.
+
+Drop the `headers` line entirely and Antigravity handles OAuth by itself —
+it registers dynamically and sends you to trkr.ai to approve, the same flow
+ChatGPT uses. `/mcp` inside the prompt panel manages servers without editing
+files.
 
 ## What you can ask
 
