@@ -1,0 +1,16 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.trkr-ai/trkr",
+  "description": "Query TRKR's synthetic market ensemble — hundreds of complete alternative futures for real assets, ten years of daily prices each, from a regime-aware, macro-driven engine. Seven tools return quantile bands, summary statistics and portfolio simulations; never the raw path grid.",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/trkr-ai/trkr-agents",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://www.trkr.ai/api/mcp"
+    }
+  ]
+}
