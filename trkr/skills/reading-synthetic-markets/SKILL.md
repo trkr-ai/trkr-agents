@@ -19,10 +19,11 @@ asset list change between runs.** A run may hold 100 futures or 1,000; it may or
 may not carry a given ticker. Never state a count from memory, and never assume
 an asset is present — the overview is the only authority.
 
-The ticker axis also carries series the engine derived rather than simulated as
-tradeable assets: `CASH` is a compounded fed-funds proxy, `MSR_SIM` and
-`MSR_HIST` are the optimizer's own max-Sharpe portfolios. The overview reports
-`investableAssets` separately for this reason. "How many assets does this cover?"
+The asset list also carries `CASH`, a compounded fed-funds proxy the engine
+derives rather than an asset you could hold, so the overview reports
+`investableAssets` separately. The optimizer's max-Sharpe portfolios are not in
+the asset list at all: they are allocations of those assets, and
+`get_engine_portfolios` returns their weights. "How many assets does this cover?"
 means the investable count.
 
 ## The spread is the product
