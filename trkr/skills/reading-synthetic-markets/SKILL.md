@@ -125,6 +125,18 @@ Reading the output:
   Say so.
 - Max drawdown is the number most clients react to emotionally. Lead with it when
   the question is about risk tolerance.
+- Trading costs money in these tools, as in the playground: `slippageBps`
+  defaults to 25bp of every trade, and each response echoes the `costs` it used.
+  Quote them with the result; a strategy that trades often pays visibly more.
+  Leverage (up to 3×) borrows at each future's own cash rate plus a spread, and
+  `margin` reports how often the levered futures met a margin call.
+- `simulate_playbook` tests rules that switch between mixes on asset or macro
+  signals. Judge the rules by `timing.vsAverage` — the playbook against its own
+  average mix held still, through the same futures — not by `rulesImpact`
+  against the base mix. A playbook that shelters in bonds or cash holds less
+  stock than the base on average, so it "beats" the base on drawdown through
+  that lower exposure alone. If `timing.switched` is false, the rules never
+  changed the holding.
 - `get_engine_portfolios` returns the optimizer's max-Sharpe weights. Treat them
   as a reference point, not a recommendation: max-Sharpe weights are notoriously
   sensitive to estimated moments, and the historical variant is fitted to the one

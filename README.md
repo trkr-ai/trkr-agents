@@ -111,7 +111,7 @@ dynamically and sends you to trkr.ai to approve, the same flow ChatGPT uses.
 
 | | |
 |---|---|
-| `trkr/.mcp.json` | The MCP server: seven tools over the current run |
+| `trkr/.mcp.json` | The MCP server: eight tools over the current run |
 | `trkr/skills/reading-synthetic-markets/` | How to read an ensemble without drawing false conclusions — the spread vs the median, unit conventions, and why filtering futures by realized returns invalidates a benchmark comparison |
 
 The skill matters as much as the tools. Simulated ensembles invite a specific
