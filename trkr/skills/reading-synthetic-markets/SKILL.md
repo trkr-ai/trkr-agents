@@ -130,6 +130,18 @@ Reading the output:
   sensitive to estimated moments, and the historical variant is fitted to the one
   history that happened.
 
+## Two limits of the engine worth naming
+
+- **Stocks and bonds falling together is under-represented.** The engine learns
+  asset behaviour from 2006 on, an era in which high-grade bonds cushioned equity
+  losses in almost every year. Years like 2022, with both down, do occur in the
+  futures — roughly one year in twenty — but less often than recent markets
+  suggest. When a recommendation leans on bonds to protect a portfolio, say so.
+- **There is no inflation or GDP series.** The engine does not simulate either;
+  their influence reaches the futures through rates, credit spreads and
+  volatility. Do not call a future "inflationary" or "recessionary" from this
+  data. Describe what rates, spreads and volatility did in it.
+
 ## What this is not
 
 TRKR is simulated data for analysis and stress testing. It is **not investment
